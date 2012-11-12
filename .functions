@@ -1,3 +1,12 @@
+function ping_online_status_bell() {
+	if test $# -eq 0
+	then
+    		echo "Please enter an ip address"
+    	return
+	fi
+	ping -i 5 -a $1
+}
+
 # Update the machines hostname, usually done once 
 # but this should save time on a new box
 function update_hostname() {
