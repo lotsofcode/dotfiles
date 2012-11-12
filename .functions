@@ -2,8 +2,8 @@ function ping_online_status_bell() {
 	DEFAULT_TIMEOUT=10 # seconds
 	if test $# -eq 0
 	then
-    		echo "Please enter an ip address"
-    	return
+		echo "Please enter an ip address."
+		return
 	fi
 	IP=$1
 	TIMEOUT=${2:-$DEFAULT_TIMEOUT};
