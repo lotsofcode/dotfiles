@@ -2,8 +2,8 @@ function ping_online_status_bell() {
 	DEFAULT_TIMEOUT=10 # seconds
 	if test $# -eq 0
 	then
-		echo "Please enter an ip address."
-		return
+    		echo "Please enter an ip address."
+ 	   	return
 	fi
 	IP=$1
 	TIMEOUT=${2:-$DEFAULT_TIMEOUT};
@@ -12,16 +12,18 @@ function ping_online_status_bell() {
 
 # Update the machines hostname, usually done once 
 # but this should save time on a new box
-function update_hostname() {
+function hostname_update() {
 	if test $# -eq 0
 	then
-    		echo "No name on command line."
-    	exit 1
+    		echo "Please enter the new hostname value."
+    		return
 	fi
 	echo $1
 	NAME=$1
 	echo $NAME
 	echo $NAME | sudo tee  /etc/hostname
+
+	echo "Don't forget to update the /etc/hosts file.";
 }
 
 # parse json url
