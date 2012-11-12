@@ -1,3 +1,17 @@
+# Update the machines hostname, usually done once 
+# but this should save time on a new box
+function update_hostname() {
+	if test $# -eq 0
+	then
+    		echo "No name on command line."
+    	exit 1
+	fi
+	echo $1
+	NAME=$1
+	echo $NAME
+	echo $NAME | sudo tee  /etc/hostname
+}
+
 # parse json url
 function parse_url_json() {
     curl -s "$@" | python -mjson.tool
