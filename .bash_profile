@@ -1,5 +1,7 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
+# Using brew path for php5.4
+export PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
