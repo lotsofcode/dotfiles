@@ -1,0 +1,4 @@
+#/usr/bin/bash
+
+# Yeoman
+sudo npm install yo grunt-cli bower -g;
