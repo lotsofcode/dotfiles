@@ -19,6 +19,38 @@ function calc() {
 	printf "\n"
 }
 
+# usage:
+# 	yeowebapp $dirname
+# 
+# Does the following:
+#  - generates yeoman webapp
+#  - install deps (npm, bower) etc
+#  - initialises a new local git repo
+#  - commits the initial code state
+#  - runs the local web server
+#  
+#  todo:
+#  - make a cup of coffee while waiting!
+function yeowebapp() {
+	local dirname="$1"
+
+	if [ "$dirname" = "" ]; then
+		echo "usage: yeoman dirname";
+		return 1;
+	fi
+
+	if [ -d "$dirname" ]; then
+		echo "'$dirname' exists, please choose another";
+		return 1;
+	fi
+
+	mkd $dirname
+	yo webapp
+	git init && git add -A && git commit -am "First commit";
+	npm install && bower install
+	grunt server
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$@"
