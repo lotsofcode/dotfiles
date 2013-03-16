@@ -1,6 +1,20 @@
 # Setup z function
 source ~/.utils/z/z.sh
 
+function restartnow() {
+	sudo shutdown -r now;
+}
+
+function shutdownnow() {
+	sudo shutdown -h now;
+}
+
+function saysay() {
+#	echo '----------';
+	echo $(tput setaf 2)$*$(tput sgr0);
+#	echo '----------';
+}
+
 # Simple calculator
 function calc() {
 	local result=""

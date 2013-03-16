@@ -1,0 +1,18 @@
+!#/bin/bash
+
+. ~/.functions
+
+# update packages
+saysay "Updating system package list"
+sudo apt-get update
+
+# vim
+saysay 'Installing vim';
+sudo apt-get install vim
+
+# zsh
+saysay 'Installing zsh (&omzsh)';
+sudo apt-get install zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+saysay 'Change shell to /bin/zsh';
+chsh -s /bin/zsh
