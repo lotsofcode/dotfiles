@@ -1,8 +1,19 @@
 #!/bin/bash -e
 
+source ~/.platform
+
 INIT_DIR="."
 if [ "$1" != "" ]; then
 	INIT_DIR="$1"
 fi
 
-/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl $INIT_DIR &
+if [ "$platform" = "linux" ]; 
+	then
+
+	~/apps/st2/sublime_text $INIT_DIR &
+
+else
+
+	/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl $INIT_DIR &
+
+fi
