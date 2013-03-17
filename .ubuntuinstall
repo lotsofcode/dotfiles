@@ -6,13 +6,26 @@
 saysay "Updating system package list"
 sudo apt-get update
 
+# git
+saysay "Installing git"
+sudo apt-get install --yes git
+
 # vim
 saysay 'Installing vim';
-sudo apt-get install vim
+sudo apt-get install --yes vim
 
 # zsh
-saysay 'Installing zsh (&omzsh)';
-sudo apt-get install zsh
+
+saysay 'Installing zsh';
+sudo apt-get install --yes zsh
+
+saysay "Installing oh-my-zsh";
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 saysay 'Change shell to /bin/zsh';
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
+
+saysay "Cleaning up ..."
+sudo apt-get --yes autoremove;
+
+
