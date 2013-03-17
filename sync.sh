@@ -2,7 +2,12 @@
 cd "$(dirname "${BASH_SOURCE}")"
 git pull
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -av . ~
+  rsync --exclude ".git/" \
+    --exclude ".DS_Store" \
+    --exclude "sync.sh" \
+    --exclude "updater.sh" \
+    --exclude "README.md" \
+  -av . ~
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
@@ -14,4 +19,8 @@ else
 	fi
 fi
 unset doIt
-source ~/.bash_profile
+
+# if [ "$2" != "--no-source" -a "$2" != "-ns" ]; then
+  # source ~/.bash_profile
+  # source ~/.zshrc
+# fi

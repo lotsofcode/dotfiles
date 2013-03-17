@@ -1,5 +1,5 @@
 # Setup z function
-source ~/.utils/z/z.sh
+# source ~/.utils/z/z.sh
 
 function restartnow() {
 	sudo shutdown -r now;
@@ -10,9 +10,9 @@ function shutdownnow() {
 }
 
 function saysay() {
-#	echo '----------';
-	echo $(tput setaf 2)$*$(tput sgr0);
-#	echo '----------';
+  echo "";
+	echo "$(tput setaf 2)$*$(tput sgr0)";
+  echo "";
 }
 
 # Simple calculator
@@ -35,14 +35,14 @@ function calc() {
 
 # usage:
 # 	yeowebapp $dirname
-# 
+#
 # Does the following:
 #  - generates yeoman webapp
 #  - install deps (npm, bower) etc
 #  - initialises a new local git repo
 #  - commits the initial code state
 #  - runs the local web server
-#  
+#
 #  todo:
 #  - make a cup of coffee while waiting!
 function yeowebapp() {

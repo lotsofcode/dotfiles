@@ -7,7 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-for file in ~/.{path,exports,aliases,functions,extra}; do
+for file in ~/.{platform,path,exports,aliases,functions,updaters,extra} ~/.utils/z/z.sh; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -47,6 +47,3 @@ export PATH=/usr/local/opt/php54/bin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 # Mysql commands
 alias mysql=/usr/local/mysql/bin/mysql
 alias mysqladmin=/usr/local/mysql/bin/mysqladmin
-
-# Setup z command
-source ~/.utils/z/z.sh

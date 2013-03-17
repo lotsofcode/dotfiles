@@ -1,31 +1,37 @@
-!#/bin/bash
-
-. ~/.functions
+#!/bin/bash
 
 # update packages
-saysay "Updating system package list"
+saysay "sudo apt-get update"
 sudo apt-get update
 
+# upgrade
+saysay "sudo apt-get upgrade --yes --show-upgraded"
+sudo apt-get upgrade --yes --show-upgraded
+
 # git
-saysay "Installing git"
+saysay "sudo apt-get install --yes git"
 sudo apt-get install --yes git
 
 # vim
-saysay 'Installing vim';
+saysay 'sudo apt-get install --yes vim';
 sudo apt-get install --yes vim
 
 # zsh
-
-saysay 'Installing zsh';
+saysay 'sudo apt-get install --yes zsh';
 sudo apt-get install --yes zsh
 
-saysay "Installing oh-my-zsh";
+# oh-my-zsh
+saysay "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh";
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-saysay 'Change shell to /bin/zsh';
+# change shell to zsh
+saysay 'sudo chsh -s /bin/zsh';
 sudo chsh -s /bin/zsh
 
-saysay "Cleaning up ..."
-sudo apt-get --yes autoremove;
+# whois
+saysay 'sudo apt-get install --yes whois'
+sudo apt-get install --yes whois
 
-
+# clean up
+saysay "sudo apt-get --yes autoremove"
+sudo apt-get --yes autoremove
