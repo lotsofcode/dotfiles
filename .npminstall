@@ -1,5 +1,15 @@
 #/usr/bin/bash
 
+sayhead "Installing npm packages"
+
 # Yeoman
-saysay "Installing yeoman, grunt and bower"
-sudo npm install yo grunt-cli bower -g;
+saybody "Installing yeoman"
+sudo npm install yo -g;
+
+# Grunt
+saybody "Installing grunt-cli"
+sudo npm install grunt-cli -g;
+
+# Bower
+saybody "Installing bower"
+sudo npm install bower -g;

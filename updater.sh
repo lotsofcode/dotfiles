@@ -1,49 +1,59 @@
 #!/bin/bash
 
-# source .functions
+source .platform
+source .functions
 
-local CONFIG=~/.dotfiles-update;
+CONFIG=~/.dotfiles;
 
-# tmp
-# _update_dotfiles_update;
-
+# grab the current epoch
 function _current_epoch() {
   echo $(($(date +%s) / 60 / 60 / 24))
 }
 
 # create the epoch config
 function _update_dotfiles_create_epoch() {
-  echo "LAST_EPOCH=$(_current_epoch)" >> $CONFIG
+  echo -e "\nLAST_EPOCH=$(_current_epoch)" >> $CONFIG
 }
 
 # update the epoch config
 function _update_dotfiles_update_epoch() {
-  sed -i "s/LAST_EPOCH=.*/LAST_EPOCH=$(_current_epoch)/g" $CONFIG
+  # @see http://stackoverflow.com/questions/7648328/getting-sed-error #annoying
+  if [ "$platform" = "darwin" ] ; then
+    sed -i "" "s/LAST_EPOCH=.*/LAST_EPOCH=$(_current_epoch)/g" $CONFIG
+  else
+    sed -i "s/LAST_EPOCH=.*/LAST_EPOCH=$(_current_epoch)/g" $CONFIG
+  fi
 }
 
 function _upgrade_dotfiles() {
-  # saysay "~/code/dotifiles/sync.sh -f"
+  sayhead "UPDATING DOTFILES"
+  saybody "~/code/dotfiles/sync.sh -f"
   ~/code/dotfiles/sync.sh -f
-  # update the .dotfies-update file
+  saybody "_update_dotfiles_update_epoch"
   _update_dotfiles_update_epoch
-  source ~/.zshrc
+  saybody "source ~/.zshrc"
+  source ~/.zshrc # recurssion issue w/ source - seek medical attention immediately
 }
 
-if [ -f ~/.dotfiles-update ]
+if [ -f $CONFIG ]
 then
-  source ~/.dotfiles-update
-
+  source $CONFIG
   if [[ -z "$LAST_EPOCH" ]]; then
-    _update_dotfiles_create_epoch && return 0;
+    _update_dotfiles_create_epoch && exit 0;
   fi
-
   epoch_diff=$(($(_current_epoch) - $LAST_EPOCH))
   if [ $epoch_diff -gt 13 ]; then
+
+    gitstatus=$(git pull);
+    if [ "$gitstatus" = "Already up-to-date." ]; then
+      _update_dotfiles_create_epoch && exit 0;
+    fi
+
     if [ "$DISABLE_UPDATE_PROMPT" = "true" ]; then
       _upgrade_dotfiles
     else
       echo "[dotfiles] Would you like to pull in the updates [y/n]? \c"
-        read line
+      read line
       if [ "$line" = Y ] || [ "$line" = y ]; then
         _upgrade_dotfiles
       else
@@ -52,6 +62,5 @@ then
     fi
   fi
 else
-  # create the .dotfiles-update file
   _update_dotfiles_create_epoch
 fi

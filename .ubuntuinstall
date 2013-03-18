@@ -1,37 +1,39 @@
 #!/bin/bash
 
+sayhead "Installing ubuntu packages"
+
 # update packages
-saysay "sudo apt-get update"
+saybody "sudo apt-get update"
 sudo apt-get update
 
 # upgrade
-saysay "sudo apt-get upgrade --yes --show-upgraded"
+saybody "sudo apt-get upgrade --yes --show-upgraded"
 sudo apt-get upgrade --yes --show-upgraded
 
 # git
-saysay "sudo apt-get install --yes git"
+saybody "sudo apt-get install --yes git"
 sudo apt-get install --yes git
 
 # vim
-saysay 'sudo apt-get install --yes vim';
+saybody 'sudo apt-get install --yes vim';
 sudo apt-get install --yes vim
 
 # zsh
-saysay 'sudo apt-get install --yes zsh';
+saybody 'sudo apt-get install --yes zsh';
 sudo apt-get install --yes zsh
 
 # oh-my-zsh
-saysay "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh";
+saybody "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh";
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 # change shell to zsh
-saysay 'sudo chsh -s /bin/zsh';
+saybody 'sudo chsh -s /bin/zsh';
 sudo chsh -s /bin/zsh
 
 # whois
-saysay 'sudo apt-get install --yes whois'
+saybody 'sudo apt-get install --yes whois'
 sudo apt-get install --yes whois
 
 # clean up
-saysay "sudo apt-get --yes autoremove"
+saybody "sudo apt-get --yes autoremove"
 sudo apt-get --yes autoremove
