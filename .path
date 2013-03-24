@@ -1,0 +1,4 @@
+PATH="~/bin:$PATH"
+PATH="~/.rvm/bin:$PATH"
+
+export PATH=$PATH

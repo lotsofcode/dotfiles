@@ -47,3 +47,5 @@ export PATH=/usr/local/opt/php54/bin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 # Mysql commands
 alias mysql=/usr/local/mysql/bin/mysql
 alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM

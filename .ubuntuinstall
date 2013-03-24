@@ -14,6 +14,10 @@ sudo apt-get upgrade --yes --show-upgraded
 saybody "sudo apt-get install --yes git"
 sudo apt-get install --yes git
 
+# git
+saybody "sudo apt-get install --yes gimp"
+sudo apt-get install --yes gimp
+
 # vim
 saybody 'sudo apt-get install --yes vim';
 sudo apt-get install --yes vim
@@ -25,6 +29,12 @@ sudo apt-get install --yes zsh
 # oh-my-zsh
 saybody "curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh";
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+# hub
+saybody "curl http://defunkt.io/hub/standalone -sLo ~/bin/hub"
+curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
+saybody "chmod u+x ~/bin/hub"
+chmod u+x ~/bin/hub
 
 # change shell to zsh
 saybody 'sudo chsh -s /bin/zsh';
