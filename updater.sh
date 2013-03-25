@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source .platform
-source .functions
+source ~/.platform
+source ~/.functions
 
 CONFIG=~/.dotfiles;
 
