@@ -11,6 +11,7 @@ alias dx="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias c="cd ~/code" # composer alias collision
+alias git=hub
 alias g="git"
 alias h="history"
 alias j="jobs"
