@@ -19,6 +19,7 @@ alias s="subl ."
 alias st="s"
 alias o="open"
 alias oo="open ."
+alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
