@@ -46,6 +46,7 @@ brew install rhino
 brew install tree
 brew install webkit2png
 brew install zsh
+brew install gnu-sed
 
 # Remove outdated versions from the cellar
 brew cleanup
