@@ -48,4 +48,5 @@ export PATH=/usr/local/opt/php54/bin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/lo
 alias mysql=/usr/local/mysql/bin/mysql
 alias mysqladmin=/usr/local/mysql/bin/mysqladmin
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+
